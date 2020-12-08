@@ -1,0 +1,435 @@
+externs:
+  externs:
+  - globid: getarg
+    name: extern
+    ret_type: int
+    tdecls:
+      name: tdecls
+      types:
+      - int
+  - globid: getargf
+    name: extern
+    ret_type: float
+    tdecls:
+      name: tdecls
+      types:
+      - int
+  name: externs
+funcList:
+  getarg: int
+  getargf: float
+  run: int
+  test1: float
+funcs:
+  funcs:
+  - blk:
+      contents:
+        name: stmts
+        stmts:
+        - exp:
+            name: lit
+            type: int
+            value: 0
+          name: vardeclstmt
+          vdecl:
+            node: vdecl
+            type: int
+            var: $x
+        - exp:
+            name: lit
+            type: int
+            value: 1
+          name: vardeclstmt
+          vdecl:
+            node: vdecl
+            type: int
+            var: $xy
+        - exp:
+            name: lit
+            type: int
+            value: 2
+          name: vardeclstmt
+          vdecl:
+            node: vdecl
+            type: int
+            var: $xyz
+        - cond:
+            lhs:
+              name: varval
+              type: int
+              var: $xyz
+            name: binop
+            op: gt
+            rhs:
+              name: lit
+              type: int
+              value: 8
+            type: bool
+          name: while
+          stmt:
+            contents:
+              contents:
+                name: stmts
+                stmts:
+                - exp:
+                    exp:
+                      exp:
+                        lhs:
+                          lhs:
+                            name: varval
+                            type: float
+                            var: $a
+                          name: binop
+                          op: add
+                          rhs:
+                            name: varval
+                            type: float
+                            var: $b
+                          type: float
+                        name: binop
+                        op: sub
+                        rhs:
+                          lhs:
+                            lhs:
+                              name: varval
+                              type: float
+                              var: $c
+                            name: binop
+                            op: div
+                            rhs:
+                              name: varval
+                              type: float
+                              var: $a
+                            type: float
+                          name: binop
+                          op: mul
+                          rhs:
+                            name: varval
+                            type: float
+                            var: $b
+                          type: float
+                        type: float
+                      name: caststmt
+                      type: int
+                    name: assign
+                    type: int
+                    var: $x
+                  name: expstmt
+                - cond:
+                    lhs:
+                      name: varval
+                      type: float
+                      var: $a
+                    name: binop
+                    op: eq
+                    rhs:
+                      name: varval
+                      type: float
+                      var: $b
+                    type: bool
+                  else_stmt:
+                    exp:
+                      exp:
+                        name: lit
+                        type: int
+                        value: 0
+                      name: assign
+                      type: int
+                      var: $xy
+                    name: expstmt
+                    typeOfDeclaredVariable:
+                      $a: float
+                      $b: float
+                      $c: float
+                      $x: int
+                      $xy: int
+                      $xyz: int
+                  name: if
+                  stmt:
+                    exp:
+                      exp:
+                        exp:
+                          name: lit
+                          type: int
+                          value: 1
+                        name: caststmt
+                        type: int
+                      name: assign
+                      type: int
+                      var: $xy
+                    name: expstmt
+                    typeOfDeclaredVariable:
+                      $a: float
+                      $b: float
+                      $c: float
+                      $x: int
+                      $xy: int
+                      $xyz: int
+                - cond:
+                    lhs:
+                      lhs:
+                        lhs:
+                          name: varval
+                          type: int
+                          var: $xyz
+                        name: binop
+                        op: gt
+                        rhs:
+                          exp:
+                            name: varval
+                            type: int
+                            var: $xy
+                          name: uop
+                          op: minus
+                          type: int
+                        type: bool
+                      name: binop
+                      op: and
+                      rhs:
+                        lhs:
+                          name: varval
+                          type: float
+                          var: $a
+                        name: binop
+                        op: lt
+                        rhs:
+                          name: varval
+                          type: float
+                          var: $b
+                        type: bool
+                      type: bool
+                    name: binop
+                    op: or
+                    rhs:
+                      lhs:
+                        lhs:
+                          name: varval
+                          type: float
+                          var: $c
+                        name: binop
+                        op: eq
+                        rhs:
+                          name: varval
+                          type: float
+                          var: $a
+                        type: bool
+                      name: binop
+                      op: or
+                      rhs:
+                        lhs:
+                          name: varval
+                          type: int
+                          var: $x
+                        name: binop
+                        op: eq
+                        rhs:
+                          name: lit
+                          type: int
+                          value: 0
+                        type: bool
+                      type: bool
+                    type: bool
+                  else_stmt:
+                    contents:
+                      contents:
+                        name: stmts
+                        stmts:
+                        - exp:
+                            exp:
+                              name: flit
+                              type: float
+                              value: 8.5
+                            name: assign
+                            type: float
+                            var: $a
+                          name: expstmt
+                      name: blk
+                    name: blk
+                    typeOfDeclaredVariable:
+                      $a: float
+                      $b: float
+                      $c: float
+                      $x: int
+                      $xy: int
+                      $xyz: int
+                  name: if
+                  stmt:
+                    contents:
+                      contents:
+                        name: stmts
+                        stmts:
+                        - exp:
+                            name: varval
+                            type: float
+                            var: $a
+                          name: ret
+                      name: blk
+                    name: blk
+                    typeOfDeclaredVariable:
+                      $a: float
+                      $b: float
+                      $c: float
+                      $x: int
+                      $xy: int
+                      $xyz: int
+                - exp:
+                    exp:
+                      name: flit
+                      type: float
+                      value: 7.2
+                    name: assign
+                    type: float
+                    var: $b
+                  name: expstmt
+              name: blk
+            name: blk
+          typeOfDeclaredVariable:
+            $a: float
+            $b: float
+            $c: float
+            $x: int
+            $xy: int
+            $xyz: int
+        - exp:
+            name: varval
+            type: float
+            var: $c
+          name: ret
+      name: blk
+      typeOfDeclaredVariable:
+        $a: float
+        $b: float
+        $c: float
+        $x: int
+        $xy: int
+        $xyz: int
+    globid: test1
+    name: func
+    ret_type: float
+    vdecls:
+      name: vdecls
+      vars:
+      - node: vdecl
+        type: noalias ref float
+        var: $a
+      - node: vdecl
+        type: noalias ref float
+        var: $b
+      - node: vdecl
+        type: float
+        var: $c
+  - blk:
+      contents:
+        name: stmts
+        stmts:
+        - exp:
+            globid: getargf
+            name: funccall
+            params:
+              exps:
+              - name: lit
+                type: int
+                value: 0
+              name: exps
+            type: float
+          name: vardeclstmt
+          vdecl:
+            node: vdecl
+            type: float
+            var: $a
+        - exp:
+            globid: getargf
+            name: funccall
+            params:
+              exps:
+              - name: lit
+                type: int
+                value: 1
+              name: exps
+            type: float
+          name: vardeclstmt
+          vdecl:
+            node: vdecl
+            type: float
+            var: $b
+        - exp:
+            globid: getargf
+            name: funccall
+            params:
+              exps:
+              - name: lit
+                type: int
+                value: 2
+              name: exps
+            type: float
+          name: vardeclstmt
+          vdecl:
+            node: vdecl
+            type: float
+            var: $c
+        - name: printslit
+          string: 'initial:'
+        - exp:
+            name: varval
+            type: float
+            var: $a
+          name: print
+        - exp:
+            name: varval
+            type: float
+            var: $b
+          name: print
+        - exp:
+            name: varval
+            type: float
+            var: $c
+          name: print
+        - exp:
+            globid: test1
+            name: funccall
+            params:
+              exps:
+              - name: varval
+                type: float
+                var: $a
+              - name: varval
+                type: float
+                var: $b
+              - name: varval
+                type: float
+                var: $c
+              name: exps
+            type: float
+          name: expstmt
+        - name: printslit
+          string: 'final:'
+        - exp:
+            name: varval
+            type: float
+            var: $a
+          name: print
+        - exp:
+            name: varval
+            type: float
+            var: $b
+          name: print
+        - exp:
+            name: varval
+            type: float
+            var: $c
+          name: print
+        - exp:
+            name: lit
+            type: int
+            value: 0
+          name: ret
+      name: blk
+      typeOfDeclaredVariable:
+        $a: float
+        $b: float
+        $c: float
+    globid: run
+    name: func
+    ret_type: int
+  name: funcs
+name: prog

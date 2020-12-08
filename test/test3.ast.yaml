@@ -1,0 +1,44 @@
+funcList:
+  inc: void
+  run: int
+funcs:
+  funcs:
+  - blk:
+      name: blk
+      typeOfDeclaredVariable:
+        $n: void
+    globid: inc
+    name: func
+    ret_type: void
+    vdecls:
+      name: vdecls
+      vars:
+      - node: vdecl
+        type: void
+        var: $n
+  - blk:
+      contents:
+        name: stmts
+        stmts:
+        - exp:
+            name: lit
+            type: int
+            value: 1
+          name: vardeclstmt
+          vdecl:
+            node: vdecl
+            type: int
+            var: $b
+        - exp:
+            name: lit
+            type: int
+            value: 0
+          name: ret
+      name: blk
+      typeOfDeclaredVariable:
+        $b: int
+    globid: run
+    name: func
+    ret_type: int
+  name: funcs
+name: prog

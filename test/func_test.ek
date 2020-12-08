@@ -1,0 +1,16 @@
+def int test_func(int $n) {
+  int $ret = $n + 1;
+  return $ret;
+}
+
+def int run () {
+  int $res = 0;
+  int $i = 0;
+  while ($i < 1000000000) {
+    $res = test_func($i);
+    $i = $i + 1;
+  }
+  return 0;
+}
+
+
